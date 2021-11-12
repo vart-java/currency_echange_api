@@ -26,12 +26,14 @@ public class CurrencyRateDownloadingExecutor {
 
 
     @Scheduled(fixedDelay = 86400000L)
-    public void executeDownloadJob() {
+    public void executePrivatbankDownloadJob() {
         currencyService.saveDownloadCurrencyRateList(privatbankDownloadDtoMapper
                 .getFromPrivatebankDTOList(privatbankRestClient.getCurrentCurrencyExchangeRates()));
+    }
 
+    @Scheduled(fixedDelay = 86400000L)
+    public void executeMonobankDownloadJob() {
         currencyService.saveDownloadCurrencyRateList(monobankDownloadDtoMapper
                 .getFromMonobankDTOList(monobankRestClient.getCurrentCurrencyExchangeRates()));
-
     }
 }

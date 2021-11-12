@@ -39,4 +39,6 @@ public class CurrencyExchangeEntity {
 
     @Column(name = "bank_name")
     private String bankName;
+
+    public record CurrencyPair(String baseCurrency, String exchangeCurrency){}
 }
